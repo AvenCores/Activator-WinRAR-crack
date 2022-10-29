@@ -2,7 +2,7 @@
 ___
 # 💻Меню
 ![menu](https://i.imgur.com/fQAYVqm.png)
-
+___
 # 💎Запуск
 * Открываем **Activator.exe** от _имени Администратора_
 ___
