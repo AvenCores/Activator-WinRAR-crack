@@ -1,10 +1,16 @@
 from tkinter import Tk,Canvas,PhotoImage,Button,messagebox,Label,CENTER
+from requests import get
 from os import system
 
 root = Tk()
 root.title('Activator WinRAR')
 root.geometry('400x300')
 root.resizable(width=False, height=False)
+
+f=open(r'banner.png', "wb")
+ufr = get("https://i.imgur.com/Pea4LkY.png")
+f.write(ufr.content)
+f.close()
 
 canvas = Canvas(root, height=400, width=400)
 canvas.pack()
