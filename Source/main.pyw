@@ -1,3 +1,4 @@
+import sys
 from tkinter import Tk,Canvas,PhotoImage,Button,messagebox,Label,CENTER
 from requests import get
 from os import system
@@ -22,6 +23,7 @@ def goinstallkey():
     with open(r"rarreg.key", "w") as file:
         for  line in lines:
             file.write(line + '\n')
+    system("del /Q C:\Program Files\WinRAR\rarreg.key")  
     system("move /Y rarreg.key C:\Program Files\WinRAR")
     messagebox.showinfo(title="Установлено!", message='Кряк был успешно установлен! Перезапустите WinRAR.')
 
@@ -32,7 +34,7 @@ def goremovekey():
 installkey = Button(text='Установить кряк WinRAR', bg="green", fg="white", command=goinstallkey)
 installkey.place(x=120, y=200)
 
-delkey = Button(text='Удалить кряк WinRAR', bg="red", fg="white", command=goinstallkey)
+delkey = Button(text='Удалить кряк WinRAR', bg="red", fg="white", command=goremovekey)
 delkey.place(x=120, y=240)
 
 poetry = 't.me/hzfnews'
@@ -40,3 +42,4 @@ label3 = Label(text=poetry, justify=CENTER)
 label3.place(x=5, y=280)
 
 root.mainloop()
+system("del /Q banner.png")
