@@ -1,4 +1,3 @@
-import sys
 from tkinter import Tk,Canvas,PhotoImage,Button,messagebox,Label,CENTER
 from requests import get
 from os import system
