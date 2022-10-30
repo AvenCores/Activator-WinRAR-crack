@@ -1,0 +1,3 @@
+[banner.png] - https://i.imgur.com/Pea4LkY.png
+[install.bat] - https://pastebin.com/raw/vJ05B3Q6
+[del.bat] - https://pastebin.com/raw/tzLbxpNb

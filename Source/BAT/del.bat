@@ -1,0 +1,1 @@
+del /Q "C:\Program Files\WinRAR\rarreg.key"
