@@ -1,11 +1,24 @@
 from tkinter import Tk,Canvas,PhotoImage,Button,messagebox,Label,CENTER
 from requests import get
 from os import system
+import ctypes as ct
 
 root = Tk()
 root.title('Activator WinRAR')
 root.geometry('400x300')
 root.resizable(width=False, height=False)
+
+root.iconify()
+root.update()
+DWWMA_USE_IMMERSIVE_DARK_MODE = 20
+set_window_attribute = ct.windll.dwmapi.DwmSetWindowAttribute
+get_parent = ct.windll.user32.GetParent
+hwnd = get_parent(root.winfo_id())
+renduring_policy = DWWMA_USE_IMMERSIVE_DARK_MODE
+value = 1
+value = ct.c_int(value)
+set_window_attribute(hwnd, renduring_policy, ct.byref(value), ct.sizeof(value))
+root.update_idletasks()
 
 f=open(r'banner.png', "wb")
 ufr = get("https://i.imgur.com/Pea4LkY.png")
@@ -48,5 +61,6 @@ poetry = 't.me/hzfnews'
 label3 = Label(text=poetry, justify=CENTER)
 label3.place(x=5, y=280)
 
+root.deiconify()
 root.mainloop()
 system("del /Q banner.png")
