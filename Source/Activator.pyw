@@ -1,8 +1,10 @@
-from tkinter import Tk,Canvas,PhotoImage,Button,messagebox,Label,CENTER
+from tkinter import Tk,Canvas,PhotoImage,Button,messagebox,Label,CENTER, Menu
 from requests import get
 from os import system
 import ctypes as ct
 from sys import platform
+
+version = "4.3"
 
 if platform == "win32":
     root = Tk()
@@ -28,10 +30,10 @@ if platform == "win32":
     f.write(ufr.content)
     f.close()
 
-    canvas = Canvas(root, height=162, width=290)
+    canvas = Canvas(root, height=183, width=290, bg="#000000")
     canvas.pack()
     bannerimg = PhotoImage(file='banner.png')
-    renderImg = canvas.create_image(145,80, image=bannerimg)
+    renderImg = canvas.create_image(145,100, image=bannerimg)
 
     def goinstallkey():
         lines = ["RAR registration data", "hzfsoft", "Unlimited Company License", "UID=41075b9d18d904e98ab0", "64122122508ab0841c1fa203a621981d6b720ee513acd972c83952", "10d6d4dd47a2b11bd04560fce6cb5ffde62890079861be57638717", "7131ced835ed65cc743d9777f2ea71a8e32c7e593cf66794343565", "b41bcf56929486b8bcdac33d50ecf7739960cf892eda0660311493", "c8b5d1e6c7b497fbb3d3b8621ec3a8ddf317387f56b54e028b3ab0", "b6eac0ccab0822a014f9827a0e48c989c4b72b59383d59b3602da1", "1857cb59fbb2b953885e1eb272671a6d071f9b8de7be2863583398"]
@@ -60,9 +62,68 @@ if platform == "win32":
     delkey = Button(text='Удалить кряк WinRAR', bg="red", fg="white", command=goremovekey)
     delkey.place(x=120, y=240)
 
-    poetry = 't.me/hzfnews'
-    label3 = Label(text=poetry, bg="#000000", fg="white", justify=CENTER)
-    label3.place(x=5, y=280)
+    def opentgchannel():
+        url = "https://t.me/hzfnews"
+        open(url, new=2)
+
+    def openytchannel():
+        url = "https://www.youtube.com/c/HZFYT"
+        open(url, new=2)
+
+    def opendiscord():
+        url = "https://discord.com/invite/7bneGfUS5h"
+        open(url, new=2)
+
+    def openvkgroup():
+        url = "https://vk.com/hzforum1"
+        open(url, new=2)
+
+    def devtgopen():
+        url = "https://t.me/avencores"
+        open(url, new=2)
+
+    def qiwi():
+        url = "http://qiwi.com/n/AVENCORESDONATE"
+        open(url, new=2)
+
+    def cber():
+        messagebox.showinfo(title="Сбер Донат", message="2202 2050 7215 4401")
+
+    def vtb():
+        messagebox.showinfo(title="ВТБ Донат", message="2200 2404 1001 8580")
+
+    def omyprog():
+        messagebox.showinfo(title="О программе", message=f"""HZF Activator WinRAR - это простая утилита для активации WinRAR.
+
+Автор утилиты: avencores
+
+Интерфейс: Tkinter
+
+Версия: {version}
+    """)
+
+    mainmenu = Menu(root) 
+    root.config(menu=mainmenu)  
+
+    mygroup = Menu(mainmenu, tearoff=0)
+    mygroup.add_command(label="Telegram Channel", command=opentgchannel)
+    mygroup.add_command(label="YouTube Channel", command=openytchannel)
+    mygroup.add_command(label="Discord Channel", command=opendiscord)
+    mygroup.add_command(label="VK Group", command=openvkgroup)
+
+    helpmenu = Menu(mainmenu, tearoff=0)
+    helpmenu.add_command(label="Написать разработчику", command=devtgopen)
+    helpmenu.add_separator()  
+    helpmenu.add_command(label="О программе", command=omyprog)
+
+    donatemenu = Menu(mainmenu, tearoff=0)
+    donatemenu.add_command(label="Qiwi Донат", command=qiwi)
+    donatemenu.add_command(label="Сбер Донат", command=cber)
+    donatemenu.add_command(label="ВТБ Донат", command=vtb)
+
+    mainmenu.add_cascade(label="Информация", menu=mygroup)
+    mainmenu.add_cascade(label="Донат", menu=donatemenu)
+    mainmenu.add_cascade(label="Справка", menu=helpmenu)
 
     root.deiconify()
     root.mainloop()
