@@ -3,8 +3,9 @@ from requests import get
 from os import system
 import ctypes as ct
 from sys import platform
+import webbrowser
 
-version = "4.3"
+version = "4.3.1"
 
 if platform == "win32":
     root = Tk()
@@ -64,27 +65,27 @@ if platform == "win32":
 
     def opentgchannel():
         url = "https://t.me/hzfnews"
-        open(url, new=2)
+        webbrowser.open(url, new=2)
 
     def openytchannel():
         url = "https://www.youtube.com/c/HZFYT"
-        open(url, new=2)
+        webbrowser.open(url, new=2)
 
     def opendiscord():
         url = "https://discord.com/invite/7bneGfUS5h"
-        open(url, new=2)
+        webbrowser.open(url, new=2)
 
     def openvkgroup():
         url = "https://vk.com/hzforum1"
-        open(url, new=2)
+        webbrowser.open(url, new=2)
 
     def devtgopen():
         url = "https://t.me/avencores"
-        open(url, new=2)
+        webbrowser.open(url, new=2)
 
     def qiwi():
         url = "http://qiwi.com/n/AVENCORESDONATE"
-        open(url, new=2)
+        webbrowser.open(url, new=2)
 
     def cber():
         messagebox.showinfo(title="Сбер Донат", message="2202 2050 7215 4401")
