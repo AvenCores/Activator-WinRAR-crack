@@ -5,14 +5,20 @@ import ctypes as ct
 from sys import platform
 import webbrowser
 
-version = "4.3.1"
+version = "4.4"
 
 if platform == "win32":
+    f=open(r'app.ico', "wb")
+    ufr = get("https://raw.githubusercontent.com/AvenCores/Activator-WinRAR-crack/main/Source/ICO/winrar.ico")
+    f.write(ufr.content)
+    f.close()
+
     root = Tk()
     root.title('Activator WinRAR')
     root.configure(bg='#000000')
     root.geometry('400x300')
     root.resizable(width=False, height=False)
+    root.iconbitmap("app.ico")
 
     root.iconify()
     root.update()
@@ -129,6 +135,7 @@ if platform == "win32":
     root.deiconify()
     root.mainloop()
     system("del /Q banner.png")
+    system("del /Q app.ico")
 
 elif platform == "linux" or platform == "linux2" or platform == "unix":
     messagebox.showerror(title="Unsupported system", message="Ваша система не поддерживается!")
